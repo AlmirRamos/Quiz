@@ -8,6 +8,8 @@ class PerguntasActivity : AppCompatActivity() {
     private val binding by lazy {
         ActivityPerguntasBinding.inflate(layoutInflater)
     }
+    private lateinit var listaPerguntas: List<Perguntas>
+    private lateinit var perguntaAtual: Perguntas
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -19,6 +21,8 @@ class PerguntasActivity : AppCompatActivity() {
     private fun recuperarIntentExtras() {
         val bundle = intent.extras
         val nome = bundle?.getString("nome")
-        binding.textBemVindo.text = "Olá $nome"
+
+        if (nome != null) binding.textBemVindo.text = "Olá $nome"
+
     }
 }
