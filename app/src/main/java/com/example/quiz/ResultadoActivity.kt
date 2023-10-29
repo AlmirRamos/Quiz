@@ -10,14 +10,21 @@ class ResultadoActivity : AppCompatActivity() {
     private val binding by lazy {
         ActivityResultadoBinding.inflate(layoutInflater)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
         val bundle = intent.extras
-        val respostasCorretasTotal = bundle?.getString("totalRespostasCorretas")
-        val totalPerguntas = bundle?.getString("totalPerguntas")
-        binding.textResultadoFinal.text = "Você acertou $respostasCorretasTotal de $totalPerguntas"
+
+        if (bundle != null) {
+
+            val respostasCorretasTotal = bundle.getInt("totalRespostasCorretas")
+            val totalPerguntas = bundle.getInt("totalPerguntas")
+
+            binding.textResultadoFinal.text =
+                "Você acertou $respostasCorretasTotal de $totalPerguntas"
+        }
 
         binding.btnEncerrar.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)

@@ -35,7 +35,7 @@
             android:text="Acertou 0 de 10 "
             android:textStyle="bold"
             android:textSize="28sp"
-            android:layout_margin="30dp"
+            android:layout_marginVertical="30dp"
             android:textAlignment="center"/>
         <Button
             android:id="@+id/btnEncerrar"

@@ -38,9 +38,11 @@ class PerguntasActivity : AppCompatActivity() {
                     exibirDadosPerguntaAtual()
                 } else {
                     val intent = Intent(this, ResultadoActivity::class.java)
+
                     intent.putExtra("totalRespostasCorretas", totalRespostasCorretas)
                     intent.putExtra("totalPerguntas", totalPerguntas)
                     startActivity(intent)
+                    Toast.makeText(this, "Resultado", Toast.LENGTH_SHORT).show()
                 }
             } else {
                 Toast.makeText(this, "Responda para prosseguir", Toast.LENGTH_SHORT).show()
@@ -59,7 +61,7 @@ class PerguntasActivity : AppCompatActivity() {
             binding.radioResposta3.isChecked -> 3
             binding.radioResposta4.isChecked -> 4
             binding.radioResposta5.isChecked -> 5
-            else -> {}
+            else -> 0
         }
 
         if (respostaSelecionada == respostaCorreta){
